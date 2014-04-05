@@ -1,7 +1,7 @@
 /**
  * config for model
  *
- *  * @field {String} albers_map 
+ *  * @field {String} albersMapUrl
  *  * @field {Object} projection
  *  * @field {Object} [options]
  *      * @field {Number} [scale]
@@ -15,9 +15,7 @@ define(function (require) {
 var config =  {
 
     RUSSIA: {
-        albers_map: "russia_1e-7sr.js",
-        // TODO:
-        map: require("./topojson/russia_1e-7sr"),
+        albersMapUrl: getUrl("russia_1e-7sr.json", "topojson"),
 
         projection: {
             scale: 700,
@@ -31,6 +29,15 @@ var config =  {
         }
     }
 
+}
+
+function getUrl(fileName, prefix) {
+    var url = "http://localhost:8000/scripts/modules/map/";
+    url += prefix;
+    url += "/";
+    url += fileName;
+
+    return url;
 }
 
 return config;

@@ -41,15 +41,18 @@ Map.prototype = {
         }
 
         this._config = CONFIG[configName];
-        //TODO: d3.ajax
-        // this._topoJSON = require("./topojson/" + this._config.albers_map);
-        this._topoJSON = this._config.map;
-        console.log('topoJSON', this._topoJSON);
-
         this._opts = $.extend({}, options, this._config.options || {}, opts);
 
-        this._draw(this._opts.container);
-        this._bind();
+        var that = this;
+        d3.json(this._config.albersMapUrl, function (err, data) {
+            if (err) {
+                throw new Error("Couldn't load json " + url + " " + err);
+            }
+
+            that._topoJSON = data;
+            that._draw(that._opts.container);
+            that._bind();
+        });
     },
 
     finalize: function Map_finalize() {
@@ -127,7 +130,6 @@ Map.prototype = {
         });
 
         path.on("click", function (d) {
-            console.log("d", d, this);
             that._zoom(d);
         });
     },
