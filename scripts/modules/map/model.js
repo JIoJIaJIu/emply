@@ -21,7 +21,8 @@ var options =  {
 function Map() {
     this._config = null;
     this._topoJSON = null;
-    this._zoomed = false;
+    this._path = null;
+    this._zoomed = null;
 
     return this;
 }
@@ -54,8 +55,10 @@ Map.prototype = {
     finalize: function Map_finalize() {
         this._unbind();
 
-        this._topoJSON = null;
         this._config = null;
+        this._topoJSON = null;
+        this._path = null;
+        this._zoomed = null;
     },
 
     _draw: function Map__draw(container) {
@@ -84,16 +87,17 @@ Map.prototype = {
         // TODO:
         projection.translate([width / 2, height / 2]);
 
-        var path = d3.geo.path().projection(projection);
+        this._path = d3.geo.path().projection(projection);
         this._svg.attr("width", this._opts.width)
                  .attr("height", this._opts.height);
 
         var geomCollection = topojson.object(this._topoJSON, this._topoJSON.objects.russia);
-        this._svg.selectAll("path")
+        this._svg.append("g")
+            .selectAll("path")
             .data(geomCollection.geometries)
             .enter()
             .append("path")
-            .attr("d", path)
+            .attr("d", this._path)
             .style("fill", this._fillRegion.bind(this));
     },
 
@@ -106,7 +110,7 @@ Map.prototype = {
         var that = this;
         var path = this._svg.selectAll("path");
 
-        path.on("mouseover", function (e) {
+        path.on("mouseover", function () {
             var self = d3.select(this);
 
             self.transition()
@@ -114,7 +118,7 @@ Map.prototype = {
                 .style("opacity", 0.8);
         });
 
-        path.on("mouseout", function (e) {
+        path.on("mouseout", function () {
             var self = d3.select(this);
 
             self.transition()
@@ -122,8 +126,9 @@ Map.prototype = {
                 .style("opacity", 1);
         });
 
-        path.on("click", function (e) {
-            that._zoom(d3.select(this));
+        path.on("click", function (d) {
+            console.log("d", d, this);
+            that._zoom(d);
         });
     },
 
@@ -131,20 +136,47 @@ Map.prototype = {
         this._svg.selectAll("path").off();
     },
 
-    _zoom: function Map_zoom(path) {
-        if (this._zoomed) {
-            this._zoomIn(path)
+    _zoom: function Map_zoom(d) {
+        if (this._zoomed === d) {
+            this._zoomOut(d)
         } else {
-            this._zoomOut(path);
+            this._zoomIn(d);
         }
     },
 
-    _zoomIn: function Map__zoomIn(path) {
-        this._zoomed = true;
+    _zoomIn: function Map__zoomIn(d) {
+        var g = this._svg.select("g");
+
+        var centroid = this._path.centroid(d);
+        var bounds = this._path.bounds(d);
+
+        var dx = bounds[1][0] - bounds[0][0];
+        var dy = bounds[1][1] - bounds[0][1];
+        var scale = 1 / Math.max(dx / this._opts.width, dy / this._opts.height);
+
+        var x = this._opts.width / 2 - centroid[0] * scale;
+        var y = this._opts.height / 2 - centroid[1] * scale;
+        var transform = "translate(" +
+                x + ", " + y + ") " +
+                "scale(" + scale + ") ";
+
+        g.interrupt()
+         .transition()
+         .duration(750)
+         .attr("transform", transform);
+
+        this._zoomed = d;
     },
 
-    _zoomOut: function Map__zoomOut(path) {
-        this._zoomed = false;
+    _zoomOut: function Map__zoomOut(d) {
+        var g = this._svg.select("g");
+
+        g.interrupt()
+         .transition()
+         .duration(750)
+         .attr("transform", "");
+
+        this._zoomed = null;
     }
 }
 
