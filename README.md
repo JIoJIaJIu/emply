@@ -7,3 +7,8 @@ emply
 WSG 84 - World Geodetic System 1984 [link](http://ru.wikipedia.org/wiki/WGS_84)
 
 Для отрисовки карты используется topoJSON и d3.js
+
+##Server
+    * `cd server`
+    * `npm install`
+    * `node app.js`
