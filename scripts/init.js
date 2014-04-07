@@ -5,13 +5,12 @@ require.config({
     }
 });
 
-requirejs(["map/model"], function (map) {
-    console.log(map);
-
+requirejs(["map/model", "map/decorators/heatMap"], function (map, heatMap) {
     $(function () {
-        var myMap = map.new();
+        var myMap = map.new("RUSSIA");
+        heatMap.decorate(myMap);
 
-        myMap.init("RUSSIA", {
+        myMap.init({
             width: 960,
             height: 500
         });

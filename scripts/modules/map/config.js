@@ -8,6 +8,8 @@
  *      * @field {Array} [rotate]
  *      * @field {Array} [center]
  *      * @field {Array} [parallels]
+ *  * @field {Object} [heatMap]
+ *      * @field {String} csvUrl
  *
  */
 define(function (require) {
@@ -26,6 +28,12 @@ var config =  {
         options: {
             width: 960,
             height: 500
+        },
+
+        heatMap: {
+            csvUrl: getUrl("vacancy.csv", "csv"),
+            domains: [300, 500, 1000, 1500, 2000, 2500],
+            colors: ["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]
         }
     }
 

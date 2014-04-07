@@ -6,7 +6,7 @@
  *   * jQuery
  *
  *   API:
- *   * new() - return new map instance
+ *   * new(configName) - return new map instance
  */
 define(function (require, exports) {
 
@@ -18,8 +18,15 @@ var options =  {
     "container": "body"
 }
 
-function Map() {
-    this._config = null;
+/**
+ *  * @param {String} configName
+ **/
+function Map(configName) {
+    if (!configName in CONFIG) {
+        throw new Error("There is no such config", configName);
+    }
+
+    this._config = CONFIG[configName];
     this._topoJSON = null;
     this._path = null;
     this._zoomed = null;
@@ -29,18 +36,13 @@ function Map() {
 
 Map.prototype = {
     /**
-     * @param {String} configName
      * @param {Object} [opts]
      *  @param {Number} opts.width
      *  @param {Number} opts.height
      *  @param {String|HTMLElement} opts.container
+     * @param {Function} callback
      */
-    init: function Map_init(configName, opts) {
-        if (!configName in CONFIG) {
-            throw new Error("There is no such config", configName);
-        }
-
-        this._config = CONFIG[configName];
+    init: function Map_init(opts, cb) {
         this._opts = $.extend({}, options, this._config.options || {}, opts);
 
         var that = this;
@@ -52,6 +54,8 @@ Map.prototype = {
             that._topoJSON = data;
             that._draw(that._opts.container);
             that._bind();
+            if (typeof cb === "function")
+                cb();
         });
     },
 
@@ -100,13 +104,7 @@ Map.prototype = {
             .data(geomCollection.geometries)
             .enter()
             .append("path")
-            .attr("d", this._path)
-            .style("fill", this._fillRegion.bind(this));
-    },
-
-    //TODO:
-    _fillRegion: function Map__fillRegion() {
-        return "#a0000e";
+            .attr("d", this._path);
     },
 
     _bind: function Map__bind() {
@@ -183,8 +181,8 @@ Map.prototype = {
 }
 
 var module = {
-    new: function () {
-        return new Map();
+    new: function (configName) {
+        return new Map(configName);
     }
 }
 

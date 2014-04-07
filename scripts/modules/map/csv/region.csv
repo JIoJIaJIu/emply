@@ -1,0 +1,83 @@
+index,type,code,name
+1,region,RU-SE,Северная Осетия - Алания Республика
+2,region,RU-KLU,Калужская Область
+3,region,RU-BEL,Белгородская Область
+4,region,RU-MAG,Магаданская Область
+5,region,RU-KEM,Кемеровская Область
+6,region,RU-VLG,Вологодская Область
+7,region,RU-IRK,Иркутская Область
+8,region,RU-SMO,Смоленская Область
+9,region,RU-AMU,Амурская Область
+10,region,RU-ULY,Ульяновская Область
+11,region,RU-KO,Коми Республика
+12,region,RU-KL,Калмыкия Республика
+13,region,RU-SVE,Свердловская Область
+14,region,RU-PNZ,Пензенская Область
+15,region,RU-PRI,Приморский Край
+16,region,RU-YAR,Ярославская Область
+17,region,RU-ORE,Оренбургская Область
+18,region,RU-KGD,Калининградская Область
+19,region,RU-KC,Карачаево-Черкесская Республика
+20,region,RU-BRY,Брянская Область
+21,region,RU-CU,Чувашская Республика - Чувашия
+22,region,RU-CHU,Чукотский Автономный округ
+23,region,RU-MOW,Москва Город
+24,region,RU-PER,Пермский Край
+25,region,RU-ARK,Архангельская Область
+27,region,RU-KIR,Кировская Область
+28,region,RU-SAR,Саратовская Область
+29,region,RU-MUR,Мурманская Область
+30,region,RU-LIP,Липецкая Область
+31,region,RU-KYA,Красноярский Край
+32,region,RU-TA,Татарстан Республика
+33,region,RU-SA,Саха /Якутия/ Республика
+34,region,RU-UD,Удмуртская Республика
+35,region,RU-TAM,Тамбовская Область
+36,region,RU-KK,Хакасия Республика
+37,region,RU-BU,Бурятия Республика
+39,region,RU-NVS,Новосибирская Область
+41,region,RU-IN,Ингушетия Республика
+42,region,RU-NGR,Новгородская Область
+43,region,RU-CE,Чеченская Республика
+45,region,RU-TVE,Тверская Область
+46,region,RU-RYA,Рязанская Область
+47,region,RU-LEN,Ленинградская Область
+48,region,RU-ME,Марий Эл Республика
+49,region,RU-ZAB,Забайкальский Край
+50,region,RU-KHA,Хабаровский Край
+52,region,RU-AST,Астраханская Область
+53,region,RU-VLA,Владимирская Область
+54,region,RU-DA,Дагестан Республика
+55,region,RU-KOS,Костромская Область
+56,region,RU-NIZ,Нижегородская Область
+57,region,RU-MO,Мордовия Республика
+58,region,RU-VGG,Волгоградская Область
+59,region,RU-TY,Тыва Республика
+60,region,RU-KB,Кабардино-Балкарская Республика
+61,region,RU-NEN,Ненецкий Автономный округ
+62,region,RU-SPE,Санкт-Петербург Город
+63,region,RU-SAK,Сахалинская Область
+64,region,RU-CHE,Челябинская Область
+65,region,RU-ALT,Алтайский Край
+66,region,RU-ROS,Ростовская Область
+67,region,RU-SAM,Самарская Область
+68,region,RU-AD,Адыгея Республика
+69,region,RU-PSK,Псковская Область
+70,region,RU-VOR,Воронежская Область
+71,region,RU-KGN,Курганская Область
+72,region,RU-TUL,Тульская Область
+73,region,RU-TYU,Тюменская Область
+74,region,RU-KAM,Камчатский Край
+75,region,RU-KR,Карелия Республика
+76,region,RU-KRS,Курская Область
+77,region,RU-YEV,Еврейская Автономная область
+78,region,RU-STA,Ставропольский Край
+79,region,RU-YAN,Ямало-Ненецкий Автономный округ
+80,region,RU-BA,Башкортостан Республика
+83,region,RU-AL,Алтай Республика
+84,region,RU-IVA,Ивановская Область
+85,region,RU-KDA,Краснодарский Край
+87,region,RU-TOM,Томская Область
+88,region,RU-OMS,Омская Область
+89,region,RU-MOS,Московская Область
+90,region,RU-ORL,Орловская Область 
