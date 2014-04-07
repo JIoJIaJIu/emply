@@ -100,11 +100,46 @@ Map.prototype = {
 
         var geomCollection = topojson.object(this._topoJSON, this._topoJSON.objects.russia);
         this._svg.append("g")
+            .attr("class", "main")
             .selectAll("path")
             .data(geomCollection.geometries)
             .enter()
             .append("path")
             .attr("d", this._path);
+
+        this._drawCapitals(projection);
+    },
+
+    _drawCapitals: function Map__drawCapitals(projection) {
+        var csvUrl = this._config.capitalsCsvUrl;
+        if (!csvUrl)
+            return;
+
+        var that = this;
+        d3.csv(csvUrl, function (err, csv) {
+            if (err)
+                throw new Error("Couldn't get csv " + csvUrl + " " + err);
+
+            var city = that._svg.select("g.main").selectAll("g.city")
+                .data(csv)
+                .enter()
+                .append("g")
+                .attr("class", "city")
+                .attr("transform", function (d) {
+                    return  "translate(" + projection([d.lon, d.lat]) + ")";
+                });
+
+            city.append("circle")
+                .attr("r", 3)
+                .style("fill", "white")
+                .style("stroke", "#000000")
+                .style("opacity", 0.75);
+
+            city.append("text")
+                .text(function (d) {
+                    return d.capital;
+                });
+        });
     },
 
     _bind: function Map__bind() {

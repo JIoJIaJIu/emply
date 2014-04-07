@@ -3,6 +3,7 @@
  *
  *  * @field {String} albersMapUrl
  *  * @field {Object} projection
+ *  * @filed {String} [capitalsCsvUrl]
  *  * @field {Object} [options]
  *      * @field {Number} [scale]
  *      * @field {Array} [rotate]
@@ -25,6 +26,8 @@ var config =  {
             center: [-10, 65],
             parallels: [52, 64]
         },
+
+        capitalsCsvUrl: getUrl("region.csv", "csv"),
         options: {
             width: 960,
             height: 500
