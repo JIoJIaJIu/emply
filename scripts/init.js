@@ -11,8 +11,8 @@ requirejs(["map/model", "map/decorators/heatMap"], function (map, heatMap) {
         heatMap.decorate(myMap);
 
         myMap.init({
-            width: 960,
-            height: 500
+            width: "100%",
+            height: "100%"
         });
     });
 });
