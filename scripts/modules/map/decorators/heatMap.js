@@ -42,14 +42,14 @@ function heatMapDecorator(map, opts) {
                     superMethod.apply(this, arguments)
 
                 that._svg = this._svg;
-                d3.csv(that._opts.csvUrl, function (err, rows) {
+                that._loadData(function (err, rows) {
                     if (err) 
-                        throw new Error("Couldn't load csv " + that._opts.csvUrl + " " + err);
+                        throw new Error("Couldn't load data " + err);
 
                     var data = {};
                     for (var i = 0, length = rows.length; i < length; i++) {
                         var row = rows[i];
-                        data[row.code] = row.value;
+                        data[row.id] = row.value;
                     }
                     that._fillRegions(data);
                 });
@@ -68,9 +68,34 @@ heatMapDecorator.prototype = {
     _fillRegions: function heatMapDecorator__fillRegions(data) {
         var that = this;
         this._svg.selectAll("path").style("fill", function (d) {
-                var value = that._color(data[d.properties.region]) || that._color(0);
+                var id = d.properties.id;
+                if (typeof id === "undefined") {
+                    return that._color(0);
+                }
+
+                var value = that._color(data[id]) || that._color(0);
                 return value;
             });
+    },
+
+    _loadData: function heatMapDecorator__loadData(cb) {
+        var type = this._opts.data.type;
+        var url = this._opts.data.url;
+        var func;
+
+        switch (type) {
+            case "json":
+                func = d3.json;
+                break;
+            case "csv":
+                func = d3.csv;
+                break;
+            default:
+                throw new Error("Wrong type " + type);
+                break;
+        }
+
+        func.call(d3, url, cb);
     }
 }
 

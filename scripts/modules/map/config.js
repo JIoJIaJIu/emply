@@ -10,7 +10,9 @@
  *      * @field {Array} [center]
  *      * @field {Array} [parallels]
  *  * @field {Object} [heatMap]
- *      * @field {String} csvUrl
+ *      * @field {Object} data
+ *          * @field {String} url
+ *          * @filed {String} type "json"|"csv"
  *
  */
 define(function (require) {
@@ -34,8 +36,11 @@ var config =  {
         },
 
         heatMap: {
-            csvUrl: getUrl("vacancy.csv", "csv"),
-            domains: [300, 500, 1000, 1500, 2000, 2500],
+            data: {
+                url: getUrl("vacancy.json", "json"),
+                type: "json"
+            },
+            domains: [10, 50, 100, 200, 500, 5000],
             colors: ["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]
         }
     }
