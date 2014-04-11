@@ -23,9 +23,9 @@ var config =  {
         albersMapUrl: getUrl("russia_1e-7sr.json", "topojson"),
 
         projection: {
-            scale: 700,
+            scale: 800,
             rotate: [-96, 0],
-            center: [-10, 65],
+            center: [0, 65],
             parallels: [52, 64]
         },
 
@@ -40,7 +40,7 @@ var config =  {
                 url: getUrl("vacancy.json", "json"),
                 type: "json"
             },
-            domains: [10, 50, 100, 200, 500, 5000],
+            domains: [5, 50, 100, 200, 500, 5000],
             colors: ["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]
         }
     }

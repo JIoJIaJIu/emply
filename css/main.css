@@ -1,2 +1,35 @@
 * {margin: 0; padding:0}
 svg {cursor:pointer}
+
+svg path.boundary {
+}
+
+svg .city .point {
+    fill: #d6f781;
+    stroke: green;
+}
+
+svg .city text {
+    font-size: 0.8em;
+    fill: #ff0f0f;
+    font-family: Arial, sans-serif;
+}
+
+/* zoomed */
+svg g .city {
+    transition-property: opacity;
+    transition-duration: 750ms;
+    opacity: 0;
+}
+
+svg g.zoomed .city {
+    display: block;
+    transition-property: opacity;
+    transition-duration: 750ms;
+    opacity: 1;
+}
+
+svg .city.big {
+    display: block;
+    opacity: 1;
+}
