@@ -143,7 +143,7 @@ Map.prototype = {
                 });
 
             city.append("circle")
-                .attr("r", 2)
+                .attr("r", 3)
                 .attr("class", function (d) {
                     return "point point-" + d.code;
                 })

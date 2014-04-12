@@ -1,18 +1,27 @@
 * {margin: 0; padding:0}
+body {
+    background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#282828;
+    background-size:16px 16px;
+}
 svg {cursor:pointer}
 
 svg path.boundary {
 }
 
 svg .city .point {
-    fill: #d6f781;
-    stroke: green;
+    fill: white;
+    stroke: black;
 }
 
 svg .city text {
     font-size: 0.8em;
-    fill: #ff0f0f;
     font-family: Arial, sans-serif;
+    fill: black;
 }
 
 /* zoomed */
