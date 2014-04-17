@@ -1,0 +1,92 @@
+{
+    "cv_id":69,
+    "area_id":23,
+    "area_data":[{
+        "area_id":23,
+        "name":"Москва Город",
+        "level":1
+    }],
+    "area_name":"Москва",
+    "name":"sdfsdfsdf",
+    "description":null,
+    "wage_min":5000000,
+    "jobs":[{
+        "cv_job_id":71,
+        "job_id":167,
+        "job_name":"Директор по персоналу",
+        "employer_id":null,
+        "employer_name":null,
+        "department_id":272,
+        "department_name":"Ремонт, сервис, обслуживание",
+        "industry_id":374,
+        "industry_name":"IT, безопасность, технологии",
+        "company_size_id":null,
+        "company_size_name":null,
+        "start_date":"2014-01-14",
+        "end_date":"2014-01-18"
+    }, {
+        "cv_job_id":70,
+        "job_id":null,
+        "job_name":null,
+        "employer_id":null,
+        "employer_name":null,
+        "department_id":null,
+        "department_name":null,
+        "industry_id":17,
+        "industry_name":"Страхование","company_size_id":null,
+        "company_size_name":null,
+        "start_date":"2014-01-08",
+        "end_date":"2014-01-25"
+    }],
+    "skill_ids":[{
+        "cv_skill_id":6,
+        "skill_id":68,
+        "skill_name":"английский язык",
+        "skill_level_id":4,
+        "skill_level_name":"Высокий"
+    }, {
+        "cv_skill_id":7,
+        "skill_id":54,
+        "skill_name":"Microsoft Office",
+        "skill_level_id":5,
+        "skill_level_name":"Исключительный"
+    }, {
+        "cv_skill_id":8,
+        "skill_id":225,
+        "skill_name":"деловая переписка",
+        "skill_level_id":5,
+        "skill_level_name":"Исключительный"
+    }, {
+        "cv_skill_id":10,
+        "skill_id":452,
+        "skill_name":"физическая сила",
+        "skill_level_id":5,
+        "skill_level_name":"Исключительный"
+    }, {
+        "cv_skill_id":11,
+        "skill_id":193,
+        "skill_name":"переговоры",
+        "skill_level_id":5,
+        "skill_level_name":"Исключительный"
+    }, {
+        "cv_skill_id":13,
+        "skill_id":40,
+        "skill_name":"пользование ПК на уровне пользователя",
+        "skill_level_id":5,
+        "skill_level_name":"Исключительный"
+    }],
+    "certificate_ids":[{
+        "cv_certificate_id":3,
+        "certificate_id":3,
+        "certificate_name":"MCTS"
+    }, {
+        "cv_certificate_id":5,
+        "certificate_id":39,
+        "certificate_name":"Certified Public Accountant"
+    }, {
+        "cv_certificate_id":4,
+        "certificate_id":41,
+        "certificate_name":"Диплом о среднее специальном образовании"
+    }],
+    "ts":"2014-04-14 16:28:12.253731"
+}

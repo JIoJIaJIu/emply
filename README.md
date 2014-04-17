@@ -20,5 +20,4 @@ Dependencies:
 * [habr.ru](http://habrahabr.ru/post/181766/)  
 * [mike](http://bost.ocks.org/mike/map/)  
 * [tutorial](http://www.tnoda.com/blog/2013-12-07) 
-
-
+* [gallery](http://www.christopheviau.com/d3list/gallery.html)
