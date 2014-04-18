@@ -73,7 +73,10 @@ Timeline.prototype = {
         this._svg = d3.select(container)
             .append("svg")
             .attr("class", "timeline");
-        
+
+        chart.width(this._opts.width);
+        chart.height(this._opts.height);
+
         this._svg.attr("width", this._opts.width)
                  .attr("height", this._opts.height);
 

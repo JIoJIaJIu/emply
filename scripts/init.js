@@ -61,7 +61,7 @@ var route = {
                         timeline2.init({
                             container: "#timeline2",
                             width: 1000,
-                            height: 100,
+                            height: 130,
                             itemMargin: 0,
                             itemHeight: 15,
                             jsonUrl: "scripts/modules/timeline/json/data1.json"
